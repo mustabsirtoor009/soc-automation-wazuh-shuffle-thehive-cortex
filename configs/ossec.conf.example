@@ -1,0 +1,19 @@
+<!-- Wazuh manager: /var/ossec/etc/ossec.conf (integration section only) -->
+<!-- Placeholders only: never commit the real webhook URL. -->
+
+<!-- Shuffle integration -->
+<integration>
+  <name>custom-shuffle</name>
+  <rule_id>2501</rule_id>
+  <hook_url>https://<SHUFFLE_IP>:3443/api/v1/hooks/<WEBHOOK_ID></hook_url>
+  <alert_format>json</alert_format>
+</integration>
+
+<!-- Wazuh agent: /var/ossec/etc/ossec.conf (client section) -->
+<client>
+  <server>
+    <address><WAZUH_MANAGER_IP></address>
+    <port>1514</port>
+    <protocol>tcp</protocol>
+  </server>
+</client>

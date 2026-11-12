@@ -1,0 +1,18 @@
+## Cortex connector (TheHive 4) - /etc/thehive/application.conf
+## Placeholders only: never commit real keys.
+
+play.modules.enabled += org.thp.thehive.connector.cortex.CortexModule
+
+cortex {
+  servers = [
+    {
+      name = "Cortex1"
+      url = "http://<CORTEX_IP>:9001"
+      auth {
+        type = "bearer"
+        key = "<CORTEX_API_KEY>"
+      }
+      wsConfig {}
+    }
+  ]
+}
